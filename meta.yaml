@@ -1,0 +1,28 @@
+package:
+    name: super_mario
+    version: 0.0.0
+
+source:
+    path: .
+
+build:
+    number: 0
+    script: invoke install
+
+requirements:
+    develop:
+        - mypy
+        - pytest
+        - ruff ==0.3.5
+    build:
+        - invoke
+    run:
+        - python ==3.12
+        - click
+        - rich
+        - pygame
+
+
+about:
+    home: Sam.Sang
+    license: PROPRIETARY
