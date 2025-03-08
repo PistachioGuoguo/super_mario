@@ -5,7 +5,6 @@
 import pytest
 
 
-from super_mario import super_mario
 
 
 @pytest.fixture

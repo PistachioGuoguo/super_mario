@@ -16,8 +16,7 @@ setuptools.setup(
     description=DESCRIPTION,
     entry_points={
         "console_scripts": [
-            "cli = super_mario.cli:entry_point",
-            "go = super_mario.game:main",
+            "mario = super_mario.mario:main",
         ]
     },
 )
