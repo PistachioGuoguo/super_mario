@@ -38,9 +38,7 @@ def bootstrap(ctx, python=python_version()):
     with open("meta.yaml") as file:
         template = jinja2.Template(file.read())
 
-    meta_yaml = yaml.safe_load(
-        template.render(load_setup_py_data=lambda: {}, python=python)
-    )
+    meta_yaml = yaml.safe_load(template.render(load_setup_py_data=lambda: {}, python=python))
     develop_packages = meta_yaml["requirements"]["develop"]
     build_packages = meta_yaml["requirements"]["build"]
     run_packages = meta_yaml["requirements"]["run"]
@@ -48,9 +46,7 @@ def bootstrap(ctx, python=python_version()):
     ensure_packages(*develop_packages, *build_packages, *run_packages)
 
 
-@invoke.task(
-    help={"all": f"Remove {PACKAGE}.egg-info directory too", "n": "Dry-run mode"}
-)
+@invoke.task(help={"all": f"Remove {PACKAGE}.egg-info directory too", "n": "Dry-run mode"})
 def clean(ctx, all_=False, n=False):
     """Clean unused files."""
     args = ["-d", "-x", "-e .idea", "-e .vscode"]
@@ -143,9 +139,7 @@ def hooks(ctx, uninstall_=False):
         install_hooks()
 
 
-@invoke.task(
-    help={"linux": "Verify Linux package", "windows": "Verify Windows package"}
-)
+@invoke.task(help={"linux": "Verify Linux package", "windows": "Verify Windows package"})
 def verify_conda(ctx, linux=True, windows=True):
     """Verify built conda package(s)."""
     version = current_version(ctx)

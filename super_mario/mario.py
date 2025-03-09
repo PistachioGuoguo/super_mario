@@ -1,5 +1,6 @@
-import pygame
 import sys
+
+import pygame
 
 # Initialize Pygame
 pygame.init()
@@ -108,9 +109,7 @@ class Mario(pygame.sprite.Sprite):
 
     def shoot(self) -> Bullet:
         direction = 1 if self.facing_right else -1
-        return Bullet(
-            self.rect.centerx + (20 * direction), self.rect.centery, direction
-        )
+        return Bullet(self.rect.centerx + (20 * direction), self.rect.centery, direction)
 
 
 class Platform(pygame.sprite.Sprite):

@@ -10,13 +10,12 @@ setuptools.setup(
     name=PACKAGE_NAME,
     version="0.0.0",
     package_data={PACKAGE_NAME: ["py.typed", "config/*.json", "templates/*.pdf"]},
-    packages=setuptools.find_packages(
-        exclude=["*.tests", "*.tests.*", "tests.*", "tests"]
-    ),
+    packages=setuptools.find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     description=DESCRIPTION,
     entry_points={
         "console_scripts": [
             "mario = super_mario.mario:main",
+            "snake = super_mario.snake:main",
         ]
     },
 )
